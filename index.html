@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Tech</title>
+    <style>
+        /* CONFIGURAÇÃO DE CORES UTILIZANDO VARIÁVEIS CSS */
+        :root {
+            --cor-fundo-tela: #a7a7a7;
+            --cor-fundo-header: #0054d3;
+            --cor-texto-header: #a7a7a7;
+            --cor-fundo-card: #bebdbd;
+            --cor-borda-card: #3800d3;
+            --cor-titulo-card: #0054d3;
+            --cor-texto-card: #050505;
+            --cor-stroke-svg: #183C63;
+        }
+
+        body.dark-mode {
+            --cor-fundo-tela: #121212;
+            --cor-fundo-header: #1e1e1e;
+            --cor-texto-header: #ffffff; /* CORRIGIDO: Agora o título fica branco no modo escuro */
+            --cor-fundo-card: #2a2a2a;
+            --cor-borda-card: #0054d3;
+            --cor-titulo-card: #4da3ff;
+            --cor-texto-card: #e0e0e0;
+            --cor-stroke-svg: #4da3ff;
+        }
+
+        body {
+            background-color: var(--cor-fundo-tela);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: background 0.3s ease;
+        }
+
+        header {
+            background-color: var(--cor-fundo-header);
+            color: var(--cor-texto-header); /* CORRIGIDO: Puxa a cor branca quando o modo escuro ativa */
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 20px auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        header h1 { margin: 0 0 10px 0; }
+
+        .btn-tema {
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            background: var(--cor-fundo-tela);
+            border: 2px solid var(--cor-texto-header);
+            color: var(--cor-texto-card);
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 16px;       
+        }
+
+        article {
+            background-color: var(--cor-fundo-card);
+            border: 1px solid var(--cor-borda-card);
+            margin: 0;
+            padding: 16px;
+            flex: 1 1 calc(33.333% - 16px); 
+            min-width: 250px; 
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        
+        svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 12px;
+        }
+
+        svg path, svg line, svg polyline, svg rect {
+            stroke: var(--cor-stroke-svg) !important;
+        }
+
+        .artigo-autor {
+            font-weight: bold;
+            font-size: 0.9em;
+            margin: 5px 0;
+            color: var(--cor-texto-card);
+        }
+
+        h2 {
+            font-size: 1.2em;
+            margin: 10px 0 5px 0;
+            color: var(--cor-titulo-card);
+            min-height: 50px; 
+        }
+
+        p {
+            font-size: 0.95em;
+            color: var(--cor-texto-card);
+            line-height: 1.4;
+        }
+
+        .botoes-reacao {
+            margin-top: auto; 
+            display: flex;
+            gap: 10px;
+        }
+
+        .botoes-reacao button {
+            background: var(--cor-fundo-tela);
+            border: 1px solid var(--cor-titulo-card);
+            color: var(--cor-texto-card);
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- TEXTO DO BOTÃO AJUSTADO PARA O TEMA ATUAL -->
+        <button id="toggle-tema" class="btn-tema" onclick="document.body.classList.toggle('dark-mode'); this.textContent = document.body.classList.contains('dark-mode') ? '🌙 Modo Escuro' : '☀️ Modo Claro';">☀️ Modo Claro</button>
+
+        <h1>Meu blog tech</h1>
+        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
+    </header>
+
+    <main>
+        <!-- CAIXINHA 1 -->
+        <article>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.25-2.5 3.5-2.5 3.5s2.25-1 3.5-2.5M12 2C6.5 2 2 6.5 2 12c0 2.5 1 4.5 2.5 6L18 4.5C16.5 3 14.5 2 12 2zM19 9l-4 4M21.5 2.5L14 10M21.5 2.5L19 9M21.5 2.5L14 5M16.5 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            </svg>
+            <h2>Meu primeiro post</h2>
+            <p class="artigo-autor">Por: Nicollas Thiago</p>
+            <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
+            <div class="botoes-reacao">
+                <button class="btn-reacao">❤️ <span>0</span></button>
+                <button class="btn-reacao">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <!-- CAIXINHA 2 -->
+        <article>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <h2>A quantidade de dados no mundo é surreal</h2>
+            <p class="artigo-autor">Por: Nicollas Thiago</p>
+            <p>Você sabia que mais de 90% dos dados do mundo foram gerados nos últimos dois anos? É um crescimento explosivo de informação.</p>
+            <div class="botoes-reacao">
+                <button class="btn-reacao">❤️ <span>0</span></button>
+                <button class="btn-reacao">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <!-- CAIXINHA 3 -->
+        <article>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            <h2>O primeiro mouse não era de plástico</h2>
+            <p class="artigo-autor">Por: Nicollas Thiago</p>
+            <p>Antes do design moderno que conhecemos, Douglas Engelbart criou o primeiro protótipo feito de madeira em 1964.</p>
+            <div class="botoes-reacao">
+                <button class="btn-reacao">❤️ <span>0</span></button>
+                <button class="btn-reacao">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <!-- CAIXINHA 4 -->
+        <article>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"></polyline>
+            </svg>
+            <h2>Por que o Bluetooth se chama assim?</h2>
+            <p class="artigo-autor">Por: Nicollas Thiago</p>
+            <p>O nome é uma homenagem ao rei Harald Bluetooth, que unificou as tribos da Dinamarca assim como a tecnologia une dispositivos.</p>
+            <div class="botoes-reacao">
+                <button class="btn-reacao">❤️ <span>0</span></button>
+                <button class="btn-reacao">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <!-- CAIXINHA 5 -->
+        <article>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="7" width="12" height="12" rx="2"></rect>
+                <path d="M8 3v4M16 3v4M4 11h4M16 11h4M4 15h4M16 15h4M10 19v2M14 19v2"></path>
+            </svg>
+            <h2>O "Bug" que era um bicho de verdade</h2>
+            <p class="artigo-autor">Por: Nicollas Thiago</p>
+            <p>A famosa história de quando Grace Hopper encontrou uma mariposa real travando o computador Harvard Mark II em 1947.</p>
+            <div class="botoes-reacao">
+                <button class="btn-reacao">❤️ <span>0</span></button>
+                <button class="btn-reacao">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <!-- CAIXINHA 6 -->
+        <article>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <h2>Segurança digital no dia a dia</h2>
+            <p class="artigo-autor">Por: Nicollas Thiago</p>
+            <p>Pequenos hábitos como usar gerenciadores de senhas e autenticação em duas etapas protegem sua vida online.</p>
+            <div class="botoes-reacao">
+                <button class="btn-reacao">❤️ <span>0</span></button>
+                <button class="btn-reacao">👎 <span>0</span></button>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        // Lógica de reação
+        const botoesReacao = document.querySelectorAll(".btn-reacao");
+
+        botoesReacao.forEach(function (botao) {
+            let curtiu = false;
+
+            botao.addEventListener("click", function () {
+                let texto = botao.querySelector("span");
+                if (texto) {
+                    if (curtiu === false) {
+                        texto.textContent++;
+                        curtiu = true;
+                    } else {
+                        texto.textContent--;
+                        curtiu = false;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
